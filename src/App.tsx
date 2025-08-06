@@ -5,7 +5,7 @@ import SoftwarePage from "./pages/software-page"
 import { AdminProtectedRoute } from "./context/auth-context"
 import UsersPage from "./pages/users-page"
 import GuidesPage from "./pages/guides-page"
-import PlaygroundPage from "./pages/playground-page"
+import MembersDashboard from "./pages/members-dashboard"
 import SystemPage from "./pages/system-page"
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
     <div className="p-2.5 md:px-10 lg:px-20">
       <Navbar />
       <Routes>
-        <Route index element={<PlaygroundPage />} />
+        <Route index element={<MembersDashboard />} />
         <Route path="/users" element={<AdminProtectedRoute><UsersPage /></AdminProtectedRoute>} />
         <Route path="/guides" element={<AdminProtectedRoute><GuidesPage /></AdminProtectedRoute>} />
         <Route path="/systems" element={<AdminProtectedRoute><SystemPage /></AdminProtectedRoute>} />

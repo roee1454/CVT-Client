@@ -53,3 +53,15 @@ export type FileEntity = {
   path: string;
   uploadedAt: Date;
 }
+
+
+export type Member = {
+  id: string,
+  name: string,
+  phoneNum: string,
+  email: string,
+  rank: string,
+  ad: string,
+  leaveDate: Date,
+  team: string;
+}

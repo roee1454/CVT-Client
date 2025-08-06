@@ -77,8 +77,8 @@ export default function SoftwareTable() {
                             </CardDescription>
                         </div>
                         <Button onClick={handleAddNew} className="flex items-center gap-2">
-                            <Plus className="h-4 w-4" />
                             הוסף תוכנה
+                            <Plus className="h-4 w-4" />
                         </Button>
                     </div>
                 </CardHeader>

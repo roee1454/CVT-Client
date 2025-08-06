@@ -25,7 +25,6 @@ export interface System extends Omit<CreateSystemDto, "image"> { id: string, ima
 export const systemAPI = {
     getAllSystems: async () => {
         const response = await axiosClient.get("/system/ls");
-        console.log(response.data)
         return response.status === 200 ? response.data as System[] : []
     },
 

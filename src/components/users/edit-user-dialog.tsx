@@ -63,7 +63,6 @@ export default function EditUserDialog({ selectedUser, open, onOpenChange }: Edi
         }
     });
 
-    // Reset form when selectedUser changes
     useEffect(() => {
         if (selectedUser) {
             form.reset({
@@ -130,7 +129,7 @@ export default function EditUserDialog({ selectedUser, open, onOpenChange }: Edi
                                 <FormItem className="pb-4">
                                     <FormLabel>סיווג</FormLabel>
                                     <FormControl>
-                                        <Select value={field.value} onValueChange={field.onChange}>
+                                        <Select disabled={selectedUser.role === "admin"} value={field.value} onValueChange={field.onChange}>
                                             <SelectTrigger>
                                                 <SelectValue placeholder="בחר סיווג" />
                                             </SelectTrigger>

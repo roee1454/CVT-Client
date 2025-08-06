@@ -1,4 +1,4 @@
-import { OrgTree, TreeNodeProps } from "@/components/test-ui/tree";
+import { OrgTree, TreeNodeProps } from "@/components/test/tree";
 
 const mainOrgData: TreeNodeProps = {
     label: `רמ"ד מדור הדמאה`,

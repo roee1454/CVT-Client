@@ -20,7 +20,6 @@ export type SoftwareFormData = z.infer<typeof softwareSchema>;
 export const softwareApi = {
     getSoftware: async () => {
         const response = await axios.get("http://localhost:4000/software/ls");
-        console.log(response.data)
         return response.status === 200 ? response.data as Software[] : [];
     },
     deleteSoftware: async (softwareId: string) => {

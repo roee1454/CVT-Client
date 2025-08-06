@@ -10,10 +10,23 @@ import { z } from 'zod';
 import { useState, useRef } from 'react';
 import { toast } from 'sonner';
 
+const MAX_FILE_SIZE = 25 * 1024 * 1024;
+
+const ALLOWED_MIMETYPES = [
+    'application/pdf',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'application/vnd.ms-outlook',
+    'image/jpeg',
+    'image/png',
+    'image/gif',
+    'image/bmp',
+    'image/webp',
+    'image/svg+xml',
+    'image/tiff',
+];
+
 const guidesSchema = z.object({
-    files: z.any().refine(files => files instanceof FileList && files.length > 0, { 
-        message: "נא להעלות לפחות קובץ אחד" 
-    })
+    files: z.any().refine(files => files instanceof FileList && files.length > 0, { message: "נא להעלות לפחות קובץ אחד" }).refine((files: FileList) => Array.from(files).every(file => ALLOWED_MIMETYPES.includes(file.type), { message: "ניתן לעלות קבצים מהסוגים הבאים בלבד:\npdf,docx,msg,jpeg,jpg,png,gif,bmp,webp,svg,xml,tiff" })).refine((files: FileList) => Array.from(files).every(file => file.size <= MAX_FILE_SIZE), { message: "כל קובץ צריך להיות קטן מ25MB" }) 
 })
 
 type GuidesSchemaValues = z.infer<typeof guidesSchema>;
@@ -49,12 +62,13 @@ function AddGuidesDialog({ open, onOpenChange }: AddGuidesDialogProps) {
             form.reset()
             toast.success("קבצים הועלו בהצלחה!")
             client.refetchQueries({ queryKey: ['guides'] });
+            onOpenChange(false);
+
         },
         onError: (error) => {
             form.reset();
             toast.success("נכשל בעת העלאת הקבצים")
             console.error(error)
-            onOpenChange(false);
         }
     })
     

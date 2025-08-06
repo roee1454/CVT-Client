@@ -1,4 +1,4 @@
-import AddGuidesDialog from "@/components/guides-ui/add-guides-dialog";
+import AddGuidesDialog from "@/components/guides/add-guides-dialog";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";

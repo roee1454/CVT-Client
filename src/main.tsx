@@ -4,8 +4,11 @@ import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import './index.css'
+import './surpass-radix-warnings.ts'
+import './surpass-radix-errors.ts'
 import { Toaster } from 'sonner';
 import { UserProvider } from './context/auth-context.tsx';
+import { PeopleProvider } from './context/people-context.tsx';
 
 const client = new QueryClient({
   defaultOptions: {
@@ -27,10 +30,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.Fragment>
     <QueryClientProvider client={client}>
       <UserProvider>
-        <BrowserRouter>
-          <App />
-          <Toaster />
-        </BrowserRouter>
+        <PeopleProvider>
+          <BrowserRouter>
+            <App />
+            <Toaster dir='rtl' />
+          </BrowserRouter>
+        </PeopleProvider>
       </UserProvider>
     </QueryClientProvider>
   </React.Fragment>,

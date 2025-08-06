@@ -15,7 +15,7 @@ import { ContainerRecord } from "@/types";
 import { useState } from "react";
 import ContainerLogsModal from "./containers-logs-modal"; 
 import ContainerDialog from "./containers-dialog";
-import { Software } from "../software-ui/software-api";
+import { Software } from "../software/software-api";
 import { FaDocker } from 'react-icons/fa'
 
 interface ContainerTableProps {
@@ -33,7 +33,6 @@ export default function ContainerTable({ containers, refetch, isLoading, isError
     const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
     const [open, setOpen] = useState<boolean>(false);
     const [selectedContainer, setSelectedContainer] = useState<ContainerRecord>({} as any);
-
 
     function handleCopyToClipboard(text: string) {
         if (!navigator.clipboard) {
@@ -93,8 +92,8 @@ export default function ContainerTable({ containers, refetch, isLoading, isError
                             טבלת קונטיינרים פעילים
                         </CardTitle>
                         <Button onClick={handleOpenDialog} className="flex items-center gap-2">
-                            <Plus className="h-4 w-4" />
                             קונטיינר חדש
+                            <Plus className="h-4 w-4" />
                         </Button>
                     </div>
                 </CardHeader>

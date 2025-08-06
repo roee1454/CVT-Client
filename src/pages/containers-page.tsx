@@ -1,7 +1,7 @@
-import ContainerTable from "@/components/containers-ui/containers-table";
+import ContainerTable from "@/components/containers/containers-table";
 import { axiosClient } from "@/lib/axios";
 import { useQuery } from "@tanstack/react-query";
-import { Software } from "@/components/software-ui/software-api";
+import { Software } from "@/components/software/software-api";
 import { ContainerRecord } from "@/types";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Loader2 } from "lucide-react";

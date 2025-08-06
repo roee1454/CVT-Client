@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
 import { Plus } from 'lucide-react';
 import ContainersForm from './containers-form';
-import { Software } from '../software-ui/software-api';
+import { Software } from '../software/software-api';
 
 interface SoftwareDialogProps {
     software: Software[],

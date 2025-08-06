@@ -2,8 +2,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import EditUserDialog from "@/components/users-ui/edit-user-dialog";
-import PasswordResetDialog from "@/components/users-ui/edit-user-password-dialog";
+import EditUserDialog from "@/components/users/edit-user-dialog";
+import PasswordResetDialog from "@/components/users/edit-user-password-dialog";
 import { useAuth } from "@/context/auth-context";
 import { axiosClient } from "@/lib/axios"
 import { UserRecord } from "@/types";

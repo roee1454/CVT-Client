@@ -1,4 +1,4 @@
-import SoftwareTable from "@/components/software-ui/software-table";
+import SoftwareTable from "@/components/software/software-table";
 
 export default function SoftwarePage() {
     return (

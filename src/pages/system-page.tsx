@@ -1,4 +1,4 @@
-import SystemTable from "@/components/systems-ui/systems-table";
+import SystemTable from "@/components/systems/systems-table";
 
 export default function SystemPage() {
     return <div className="w-full h-full container mx-auto p-6 space-y-8">

@@ -1,4 +1,4 @@
-import { Gant, GantStageProps } from "@/components/test-ui/gant";
+import { Gant, GantStageProps } from "@/components/test/gant";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const stages: GantStageProps[] = [

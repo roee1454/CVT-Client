@@ -1,9 +1,9 @@
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Menu, User, FileArchive, Container, XCircle, Lock, FilePen, ShipWheel } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import AuthDialog from "./auth-ui/auth-dialog";
+import AuthDialog from "./auth/auth-dialog";
 import { useAuth } from "@/context/auth-context";
 import { Skeleton } from "./ui/skeleton";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
@@ -75,10 +75,10 @@ export default function Navbar() {
                 })}
             </nav>
 
-            <div className="hidden md:flex items-center space-x-2">
+            <div className="hidden md:flex items-center space-x-6">
                 {isLoading && <Skeleton className="w-24 h-10" />}
 
-                {user && <div>שלום {user.fullName}!</div>}
+                {user && <div>שלום {user.fullName}</div>}
 
                 {user && (
                     <Button
@@ -104,10 +104,8 @@ export default function Navbar() {
             </div>
 
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                <SheetTrigger asChild className="md:hidden">
-                    <Button variant="ghost" size="icon">
-                        <Menu className="w-6 h-6" />
-                    </Button>
+                <SheetTrigger className={buttonVariants({ variant: 'ghost', size: "icon", className: "md:hidden" })}>
+                    <Menu className="w-6 h-6" />
                 </SheetTrigger>
                 <SheetContent side="right" className="w-80">
                     <div className="flex flex-col space-y-4 mt-8">
@@ -155,7 +153,7 @@ export default function Navbar() {
                         <div className="space-y-2 px-2">
                             {isLoading && <Skeleton className="w-full h-10" />}
 
-                            {user && <div className="px-2">שלום {user.fullName}!</div>}
+                            {user && <div className="px-2">שלום {user.fullName}</div>}
 
                             {user && (
                                 <Button
