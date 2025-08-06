@@ -1,6 +1,6 @@
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Select, SelectItem, SelectTrigger, SelectValue, SelectContent } from '@/components/ui/select'
+import { Select, SelectTrigger, SelectValue, SelectContent } from '@/components/ui/select';
 import { Form, FormField, FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { TeamsAPI, teamSchema } from './teams-api';
@@ -15,8 +15,7 @@ interface TeamsFormProps {
     editingTeam: Team | null
 }
 
-export default function TeamsForm(props: TeamsFormProps) {   
-    
+export default function TeamsForm(props: TeamsFormProps) {       
     const form = useForm<TeamValues>({
         resolver: zodResolver(teamSchema),
         defaultValues: {
@@ -47,7 +46,7 @@ export default function TeamsForm(props: TeamsFormProps) {
         onSuccess: () => {
             client.invalidateQueries({ queryKey: ['teams'] })
             toast.success("הצוות עודכן בהצלחה")
-            props.onSuccess()
+            props.onSuccess();
         },
         onError: () => {
             form.reset();

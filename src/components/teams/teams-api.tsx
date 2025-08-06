@@ -38,5 +38,5 @@ export const TeamsAPI: TeamsApiProps = {
 
     async delete(id: string) {
         await axiosClient.delete(`team/${id}`);
-    }
+    },
 }
